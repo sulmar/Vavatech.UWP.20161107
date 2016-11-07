@@ -22,7 +22,7 @@
 
             <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}" />
 
-            <Butto Content="Zaloguj"  />
+            <Button Command="{Binding LoginCommand}" Content="Zaloguj"  />
         </StackPanel>
     </Grid>
 </Page>

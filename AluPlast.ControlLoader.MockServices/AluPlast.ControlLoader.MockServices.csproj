@@ -45,6 +45,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockAuthenticationService.cs" />
     <Compile Include="MockItemsService.cs" />
     <Compile Include="MockLoadsService.cs" />
     <Compile Include="MockPhotosService.cs" />
