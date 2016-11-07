@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluPlast.ControlLoader.Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluPlast.ControlLoader.Interfaces", "AluPlast.ControlLoader.Interfaces\AluPlast.ControlLoader.Interfaces.csproj", "{711AA642-B4EC-4C09-BB89-0CDBBB6F2976}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AluPlast.ControlLoader.MockServices", "AluPlast.ControlLoader.MockServices\AluPlast.ControlLoader.MockServices.csproj", "{91710E45-8B35-448B-97E6-4EC5F504D79D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,22 @@ Global
 		{711AA642-B4EC-4C09-BB89-0CDBBB6F2976}.Release|x64.Build.0 = Release|Any CPU
 		{711AA642-B4EC-4C09-BB89-0CDBBB6F2976}.Release|x86.ActiveCfg = Release|Any CPU
 		{711AA642-B4EC-4C09-BB89-0CDBBB6F2976}.Release|x86.Build.0 = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|x64.Build.0 = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Debug|x86.Build.0 = Debug|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|ARM.Build.0 = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|x64.ActiveCfg = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|x64.Build.0 = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|x86.ActiveCfg = Release|Any CPU
+		{91710E45-8B35-448B-97E6-4EC5F504D79D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
