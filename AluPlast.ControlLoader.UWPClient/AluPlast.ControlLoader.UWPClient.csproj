@@ -99,6 +99,11 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -125,13 +130,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AluPlast.ControlLoader.Interfaces\AluPlast.ControlLoader.Interfaces.csproj">
+      <Project>{711AA642-B4EC-4C09-BB89-0CDBBB6F2976}</Project>
+      <Name>AluPlast.ControlLoader.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AluPlast.ControlLoader.MockServices\AluPlast.ControlLoader.MockServices.csproj">
+      <Project>{91710E45-8B35-448B-97E6-4EC5F504D79D}</Project>
+      <Name>AluPlast.ControlLoader.MockServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AluPlast.ControlLoader.Models\AluPlast.ControlLoader.Models.csproj">
       <Project>{69fd2455-1643-44b0-bf34-337a5fc620d7}</Project>
       <Name>AluPlast.ControlLoader.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
