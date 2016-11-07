@@ -14,6 +14,10 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         public IList<User> Users { get; set; }
 
+        public User SelectedUser { get; set; }
+
+        public string Password { get; set; }
+
         private readonly IUsersService _UsersService;
 
         public LoginViewModel()
@@ -28,6 +32,8 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
             Users = _UsersService.Get();
         }
+
+
 
 
     }

@@ -26,5 +26,7 @@ namespace AluPlast.ControlLoader.UWPClient.Views
         {
             this.InitializeComponent();
         }
+
+      
     }
 }

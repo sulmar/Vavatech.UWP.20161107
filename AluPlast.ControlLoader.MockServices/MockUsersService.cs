@@ -12,9 +12,9 @@ namespace AluPlast.ControlLoader.MockServices
     {
         private IList<User> _Users = new List<User>
         {
-            new User { UserId = 1, FirstName = "Marcin", LastName = "Sulecki" },
-            new User { UserId = 2, FirstName = "Michał", LastName = "" },
-            new User { UserId = 3, FirstName = "Maciej", LastName = "" },
+            new User { UserId = 1, FirstName = "Marcin", LastName = "Sulecki", Password = "123" },
+            new User { UserId = 2, FirstName = "Michał", LastName = "", Password = "321" },
+            new User { UserId = 3, FirstName = "Maciej", LastName = "", Password = "231" },
         };
 
         public IList<User> Get()

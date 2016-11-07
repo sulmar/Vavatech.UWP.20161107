@@ -16,12 +16,13 @@
         <StackPanel>
             <ComboBox Header="Użytkownik" 
                       ItemsSource="{Binding Users}"
-                      ItemTemplate="{StaticResource UserTemplate}" />
+                      ItemTemplate="{StaticResource UserTemplate}"
+                      SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
+                      />
 
+            <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}" />
 
-            <PasswordBox Header="Hasło" />
-
-            <Button Content="Zaloguj" />
+            <Butto Content="Zaloguj"  />
         </StackPanel>
     </Grid>
 </Page>
