@@ -6,9 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:AluPlast.ControlLoader.Models"
+    xmlns:c="using:AluPlast.ControlLoader.UWPClient.Converters"
     mc:Ignorable="d">
 
     <Page.Resources>
+        <c:NoopConverter x:Key="NoopConverter" />
+
         <DataTemplate x:Key="LoadTemplate" x:DataType="model:Load">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{x:Bind Vehicle.RegistrationNumber}" />
@@ -18,10 +21,16 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListBox ItemsSource="{x:Bind ViewModel.Loads}"
+
+        <StackPanel>
+            <ListBox ItemsSource="{x:Bind ViewModel.Loads}"
                  ItemTemplate="{StaticResource LoadTemplate}"
-                 >
-            
-        </ListBox>
+                 SelectedItem="{x:Bind ViewModel.SelectedLoad, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
+                 SelectionChanged="{x:Bind ViewModel.ShowDetails}"
+                 />
+
+            <!--<Button Content="Show details" Click="{x:Bind ViewModel.ShowDetails}" />-->
+
+        </StackPanel>
     </Grid>
 </Page>

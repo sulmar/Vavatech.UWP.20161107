@@ -39,5 +39,10 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         {
         }
 
+        public void ShowDetails()
+        {
+
+        }
+
     }
 }
