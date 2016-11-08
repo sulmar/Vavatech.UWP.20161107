@@ -9,6 +9,8 @@ namespace AluPlast.ControlLoader.Interfaces
 {
     public interface IItemsService
     {
+        Task<IList<Item>> GetAsync(int loadId);
+
         IList<Item> Get(int loadId);
 
         void Update(Item item);

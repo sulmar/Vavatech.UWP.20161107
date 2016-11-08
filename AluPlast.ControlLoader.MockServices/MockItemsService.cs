@@ -24,6 +24,11 @@ namespace AluPlast.ControlLoader.MockServices
             return _Items;
         }
 
+        public Task<IList<Item>> GetAsync(int loadId)
+        {
+            return Task.Run(() => Get(loadId));
+        }
+
         public void Update(Item item)
         {
             item.IsLoaded = true;
