@@ -9,6 +9,7 @@
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:b="using:AluPlast.ControlLoader.UWPClient.Behaviors"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -23,17 +24,21 @@
                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                       />
 
-            <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}" />
+            <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}"
+                         
+/>
 
             <Button
-                    Content="Zaloguj" >
+                    Content="Zaloguj" 
+                    Command="{Binding LoginCommand}"
+                >
 
                 <i:Interaction.Behaviors>
                     <!--<core:EventTriggerBehavior EventName="PointerMoved">
                         <core:InvokeCommandAction Command="{Binding LoginCommand}"  />
                     </core:EventTriggerBehavior>-->
                     
-                    <b:PointerMovedBehavior Password="{Binding Password}" Command="{Binding LoginCommand}"  />
+                    <!--<b:PointerMovedBehavior Password="{Binding Password}" Command="{Binding LoginCommand}"  />-->
                 </i:Interaction.Behaviors>
 
             </Button>

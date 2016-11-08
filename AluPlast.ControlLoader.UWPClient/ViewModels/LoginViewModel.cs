@@ -2,12 +2,15 @@
 using AluPlast.ControlLoader.MockServices;
 using AluPlast.ControlLoader.Models;
 using AluPlast.ControlLoader.UWPClient.Commands;
+using AluPlast.ControlLoader.UWPClient.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace AluPlast.ControlLoader.UWPClient.ViewModels
 {
@@ -99,6 +102,8 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         {
             if (_AuthenticationService.IsValid(this.SelectedUser, this.Password))
             {
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(LoadsView));
             }
             else
             {

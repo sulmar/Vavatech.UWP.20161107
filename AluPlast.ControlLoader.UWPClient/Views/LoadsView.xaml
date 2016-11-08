@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:AluPlast.ControlLoader.Models"
     xmlns:c="using:AluPlast.ControlLoader.UWPClient.Converters"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -24,6 +25,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <StackPanel>
+
+            <Button Content="Back" Click="{x:Bind ViewModel.Back}"/>
 
             <Button Content="Load" Click="{x:Bind ViewModel.LoadAsync}"
                     IsEnabled="{x:Bind ViewModel.IsBusy, Converter={StaticResource BoolInverterConverter}, Mode=OneWay}"

@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace AluPlast.ControlLoader.UWPClient.ViewModels
 {
@@ -91,6 +93,12 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         {
 
         }
+
+        public void Back()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.GoBack();
+        }    
 
     }
 }
