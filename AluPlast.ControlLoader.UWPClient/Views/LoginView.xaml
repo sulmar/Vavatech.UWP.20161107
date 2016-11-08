@@ -6,6 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:AluPlast.ControlLoader.UWPClient.ViewModels"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:b="using:AluPlast.ControlLoader.UWPClient.Behaviors"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -22,7 +25,18 @@
 
             <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}" />
 
-            <Button Command="{Binding LoginCommand}" Content="Zaloguj"  />
+            <Button
+                    Content="Zaloguj" >
+
+                <i:Interaction.Behaviors>
+                    <!--<core:EventTriggerBehavior EventName="PointerMoved">
+                        <core:InvokeCommandAction Command="{Binding LoginCommand}"  />
+                    </core:EventTriggerBehavior>-->
+                    
+                    <b:PointerMovedBehavior Password="{Binding Password}" Command="{Binding LoginCommand}"  />
+                </i:Interaction.Behaviors>
+
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
