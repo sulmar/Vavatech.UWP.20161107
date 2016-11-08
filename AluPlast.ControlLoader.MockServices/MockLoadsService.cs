@@ -23,7 +23,7 @@ namespace AluPlast.ControlLoader.MockServices
             new Load
             {
                 LoadId = 2,
-                LoadDate = DateTime.Parse("2016-11-07"),
+                LoadDate = DateTime.Today,
                 Operator = new User { UserId = 1, FirstName = "Maciej", LastName = "" },
                 LoadStatus = LoadStatus.Done,
                 Vehicle = new Vehicle { VehicleId=1, RegistrationNumber = "PZ 434565P" },
@@ -32,7 +32,7 @@ namespace AluPlast.ControlLoader.MockServices
             new Load
             {
                 LoadId = 1,
-                LoadDate = DateTime.Parse("2016-11-07"),
+                LoadDate = DateTime.Today,
                 Operator = new User { UserId = 1, FirstName = "Michał", LastName = "" },
                 LoadStatus = LoadStatus.InProgress,
                 Vehicle = new Vehicle { VehicleId=1, RegistrationNumber = "PZ 0758585" },
