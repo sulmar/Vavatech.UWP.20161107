@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AluPlast.ControlLoader.Models;
+using System.Threading.Tasks;
 
 namespace AluPlast.ControlLoader.MockServices
 {
@@ -23,6 +24,24 @@ namespace AluPlast.ControlLoader.MockServices
             new Load
             {
                 LoadId = 2,
+                LoadDate = DateTime.Today,
+                Operator = new User { UserId = 1, FirstName = "Maciej", LastName = "" },
+                LoadStatus = LoadStatus.Done,
+                Vehicle = new Vehicle { VehicleId=1, RegistrationNumber = "PZ 434565P" },
+            },
+
+            new Load
+            {
+                LoadId = 3,
+                LoadDate = DateTime.Today,
+                Operator = new User { UserId = 1, FirstName = "Michał", LastName = "" },
+                LoadStatus = LoadStatus.InProgress,
+                Vehicle = new Vehicle { VehicleId=1, RegistrationNumber = "PZ 0758585" },
+            },
+
+            new Load
+            {
+                LoadId = 4,
                 LoadDate = DateTime.Today,
                 Operator = new User { UserId = 1, FirstName = "Maciej", LastName = "" },
                 LoadStatus = LoadStatus.Done,
@@ -71,6 +90,19 @@ namespace AluPlast.ControlLoader.MockServices
             return _Loads
                 .Where(l => l.LoadDate == date)
                 .ToList();
+
+        }
+
+        public Task<IList<Load>> GetAsync()
+        {
+            return Task.Run(() => Get());
+        }
+
+        public async Task<IList<Load>> GetAsync(DateTime date)
+        {
+            await Task.Delay(5000);
+
+            return await Task.Run(() => Get(date));
         }
     }
 }

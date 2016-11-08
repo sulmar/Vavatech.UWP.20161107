@@ -3,6 +3,7 @@ using AluPlast.ControlLoader.MockServices;
 using AluPlast.ControlLoader.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,49 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
     {
         #region Properties
 
-        public IList<Load> Loads { get; set; }
+        #region Loads
+
+        private IList<Load> _Loads;
+        public IList<Load> Loads
+        {
+            get
+            {
+                return _Loads;
+            }
+
+            set
+            {
+                _Loads = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
 
         public Load SelectedLoad { get; set; }
 
         public DateTime SelectedDate { get; set; } = DateTime.Today;
+
+        #region IsBusy
+
+        private bool _IsBusy;
+        public bool IsBusy
+        {
+            get
+            {
+                return _IsBusy;
+            }
+
+            set
+            {
+                _IsBusy = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -31,12 +70,21 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         {
             this._LoadsService = loadsService;
 
-            Loads = _LoadsService.Get(SelectedDate);
+          
         }
 
         public LoadsViewModel()
             : this(new MockLoadsService())
         {
+        }
+
+        public async Task LoadAsync()
+        {
+            IsBusy = true;
+
+            Loads = await _LoadsService.GetAsync(SelectedDate);
+
+            IsBusy = false;
         }
 
         public void ShowDetails()

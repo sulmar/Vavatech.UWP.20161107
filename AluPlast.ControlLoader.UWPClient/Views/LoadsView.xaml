@@ -11,6 +11,7 @@
 
     <Page.Resources>
         <c:NoopConverter x:Key="NoopConverter" />
+        <c:BoolInverterConverter x:Key="BoolInverterConverter" />
 
         <DataTemplate x:Key="LoadTemplate" x:DataType="model:Load">
             <StackPanel Orientation="Horizontal">
@@ -23,14 +24,31 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <StackPanel>
-            <ListBox ItemsSource="{x:Bind ViewModel.Loads}"
+
+            <Button Content="Load" Click="{x:Bind ViewModel.LoadAsync}"
+                    IsEnabled="{x:Bind ViewModel.IsBusy, Converter={StaticResource BoolInverterConverter}, Mode=OneWay}"
+                    />
+            
+            <Grid>
+                
+            <ListBox ItemsSource="{x:Bind ViewModel.Loads, Mode=OneWay}"
                  ItemTemplate="{StaticResource LoadTemplate}"
                  SelectedItem="{x:Bind ViewModel.SelectedLoad, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
                  SelectionChanged="{x:Bind ViewModel.ShowDetails}"
+                 Height="400"
                  />
+
+                <ProgressRing IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}" />
+                
+            </Grid>
+
+          
 
             <!--<Button Content="Show details" Click="{x:Bind ViewModel.ShowDetails}" />-->
 
         </StackPanel>
+
+
+        
     </Grid>
 </Page>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AluPlast.ControlLoader.Interfaces
 {
@@ -10,7 +11,11 @@ namespace AluPlast.ControlLoader.Interfaces
     {
         IList<Load> Get();
 
+        Task<IList<Load>> GetAsync();
+
         IList<Load> Get(DateTime date);
+
+        Task<IList<Load>> GetAsync(DateTime date);
 
         void Confirm(int loadId, User @operator);
 
