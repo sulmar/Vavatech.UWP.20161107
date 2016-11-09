@@ -24,7 +24,7 @@ namespace AluPlast.ControlLoader.UWPClient.Views
     /// </summary>
     public sealed partial class ItemsView : Page
     {
-        public ItemViewModel ViewModel { get; set; } = new ItemViewModel();
+        public ItemsViewModel ViewModel { get; set; } = new ItemsViewModel();
 
         public ItemsView()
         {

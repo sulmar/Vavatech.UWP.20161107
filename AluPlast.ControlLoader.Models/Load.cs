@@ -27,12 +27,18 @@ namespace AluPlast.ControlLoader.Models
             {
                 _Items = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(Progress));
+                OnPropertyChanged(nameof(LoadedItemsCount));
             }
         }
 
         public IList<Photo> Photos { get; set; }
 
         public LoadStatus LoadStatus { get; set; }
+
+        public int LoadedItemsCount => Items?.Count(p => p.IsLoaded.HasValue && p.IsLoaded.Value) ?? 0;
+
+        public double Progress =>  (Items?.Count ?? 0)==0 ? 0 : (double) decimal.Divide(LoadedItemsCount, Items.Count);
 
     }
 }

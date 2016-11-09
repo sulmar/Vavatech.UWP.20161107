@@ -14,19 +14,27 @@
         <c:NoopConverter x:Key="NoopConverter" />
         <c:BoolInverterConverter x:Key="BoolInverterConverter" />
 
+        <Style x:Key="MyStyle" TargetType="TextBlock">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        
         <DataTemplate x:Key="LoadTemplate" x:DataType="model:Load">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{x:Bind Vehicle.RegistrationNumber}" />
-                <TextBlock Text="{x:Bind LoadStatus}"/>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind Vehicle.RegistrationNumber}" Style="{StaticResource MyStyle}" />
+                    <TextBlock Text="{x:Bind LoadStatus}" Style="{StaticResource MyStyle}"/>
+            </StackPanel>
+
+                <ProgressBar Value="{x:Bind Progress, Mode=OneWay}" 
+                             Minimum="0" 
+                             Maximum="1"
+                             Height="10"
+                             />
+                
             </StackPanel>
         </DataTemplate>
 
-        <DataTemplate x:Key="ItemTemplate" x:DataType="model:Item">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{x:Bind FullName}" />
-                <CheckBox IsChecked="{x:Bind IsLoaded, Mode=TwoWay}" />
-            </StackPanel>
-        </DataTemplate>
+     
     </Page.Resources>
 
     <Grid Loaded="{x:Bind ViewModel.LoadAsync}" 

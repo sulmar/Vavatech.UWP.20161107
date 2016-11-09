@@ -107,7 +107,7 @@
       <DependentUpon>DataTemplates.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\LoadsViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\ItemsView.xaml.cs">

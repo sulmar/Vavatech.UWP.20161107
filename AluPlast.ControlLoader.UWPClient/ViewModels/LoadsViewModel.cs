@@ -112,6 +112,11 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
             Loads = await _LoadsService.GetAsync(SelectedDate);
 
+            foreach (var load in Loads)
+            {
+                load.Items = await _ItemsService.GetAsync(load.LoadId);
+            }
+
             IsBusy = false;
         }
 
