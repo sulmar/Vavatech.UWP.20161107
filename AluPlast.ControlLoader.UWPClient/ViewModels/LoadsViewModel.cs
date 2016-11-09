@@ -37,7 +37,19 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         #endregion
 
-        public Load SelectedLoad { get; set; }
+        private Load _SelectedLoad;
+        public Load SelectedLoad
+        {
+            get
+            {
+                return _SelectedLoad;
+            }
+
+            set
+            {
+                _SelectedLoad = value;
+            }
+        }
 
         public DateTime SelectedDate { get; set; } = DateTime.Today;
 
@@ -66,12 +78,14 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         #region Services
 
         private ILoadsService _LoadsService;
+        private IItemsService _ItemsService;
 
         #endregion
 
-        public LoadsViewModel(ILoadsService loadsService)
+        public LoadsViewModel(ILoadsService loadsService, IItemsService itemsService)
         {
             this._LoadsService = loadsService;
+            this._ItemsService = itemsService;
 
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
             {
@@ -82,10 +96,12 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         private void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
         {
             Back();
+
+            e.Handled = true;
         }
 
         public LoadsViewModel()
-            : this(new MockLoadsService())
+            : this(new MockLoadsService(), new MockItemsService())
         {
         }
 
@@ -98,10 +114,11 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
             IsBusy = false;
         }
 
-        public void ShowDetails()
+        public async Task ShowDetails()
         {
-
+            SelectedLoad.Items = await _ItemsService.GetAsync(SelectedLoad.LoadId);
         }
+
 
         public void Back()
         {

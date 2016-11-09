@@ -20,36 +20,37 @@
                 <TextBlock Text="{x:Bind LoadStatus}"/>
             </StackPanel>
         </DataTemplate>
+
+        <DataTemplate x:Key="ItemTemplate" x:DataType="model:Item">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{x:Bind FullName}" />
+                <CheckBox IsChecked="{x:Bind IsLoaded, Mode=TwoWay}" />
+            </StackPanel>
+        </DataTemplate>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Loaded="{x:Bind ViewModel.LoadAsync}" 
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <StackPanel>
 
-            <Button Content="Back" Click="{x:Bind ViewModel.Back}"/>
+            <!--<Button Content="Back" Click="{x:Bind ViewModel.Back}"/>-->
 
-            <Button Content="Load" Click="{x:Bind ViewModel.LoadAsync}"
+
+        <ListView ItemsSource="{x:Bind ViewModel.Loads, Mode=OneWay}"
+                         ItemTemplate="{StaticResource LoadTemplate}"
+                         SelectedItem="{x:Bind ViewModel.SelectedLoad, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
+                         SelectionChanged="{x:Bind ViewModel.ShowDetails}"
+                         />
+
+        <!--<Button Content="Load" Click="{x:Bind ViewModel.LoadAsync}"
+                    HorizontalAlignment="Center"
                     IsEnabled="{x:Bind ViewModel.IsBusy, Converter={StaticResource BoolInverterConverter}, Mode=OneWay}"
-                    />
+                    />-->
+
+        <!--<Button Content="Show details" Click="{x:Bind ViewModel.ShowDetails}" />-->
+
+            <ProgressRing IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}" />
             
-            <Grid>
-                
-            <ListBox ItemsSource="{x:Bind ViewModel.Loads, Mode=OneWay}"
-                 ItemTemplate="{StaticResource LoadTemplate}"
-                 SelectedItem="{x:Bind ViewModel.SelectedLoad, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
-                 SelectionChanged="{x:Bind ViewModel.ShowDetails}"
-                 Height="400"
-                 />
-
-                <ProgressRing IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}" />
-                
-            </Grid>
-
-          
-
-            <!--<Button Content="Show details" Click="{x:Bind ViewModel.ShowDetails}" />-->
-
-        </StackPanel>
 
 
         

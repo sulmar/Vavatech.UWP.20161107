@@ -100,8 +100,6 @@ namespace AluPlast.ControlLoader.MockServices
 
         public async Task<IList<Load>> GetAsync(DateTime date)
         {
-            await Task.Delay(5000);
-
             return await Task.Run(() => Get(date));
         }
     }

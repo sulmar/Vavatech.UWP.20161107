@@ -15,7 +15,20 @@ namespace AluPlast.ControlLoader.Models
 
         public User Operator { get; set; }
 
-        public IList<Item> Items { get; set; }
+        private IList<Item> _Items;
+        public IList<Item> Items
+        {
+            get
+            {
+                return _Items;
+            }
+
+            set
+            {
+                _Items = value;
+                OnPropertyChanged();
+            }
+        }
 
         public IList<Photo> Photos { get; set; }
 
