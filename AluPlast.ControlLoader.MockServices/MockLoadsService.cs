@@ -50,8 +50,8 @@ namespace AluPlast.ControlLoader.MockServices
 
             new Load
             {
-                LoadId = 1,
-                LoadDate = DateTime.Today,
+                LoadId = 5,
+                LoadDate = DateTime.Parse("2016-11-07"),
                 Operator = new User { UserId = 1, FirstName = "Michał", LastName = "" },
                 LoadStatus = LoadStatus.InProgress,
                 Vehicle = new Vehicle { VehicleId=1, RegistrationNumber = "PZ 0758585" },

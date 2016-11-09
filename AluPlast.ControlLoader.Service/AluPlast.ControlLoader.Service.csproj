@@ -207,6 +207,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoadsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -284,6 +285,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AluPlast.ControlLoader.Interfaces\AluPlast.ControlLoader.Interfaces.csproj">
+      <Project>{711aa642-b4ec-4c09-bb89-0cdbbb6f2976}</Project>
+      <Name>AluPlast.ControlLoader.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AluPlast.ControlLoader.MockServices\AluPlast.ControlLoader.MockServices.csproj">
+      <Project>{91710e45-8b35-448b-97e6-4ec5f504d79d}</Project>
+      <Name>AluPlast.ControlLoader.MockServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AluPlast.ControlLoader.Models\AluPlast.ControlLoader.Models.csproj">
+      <Project>{69fd2455-1643-44b0-bf34-337a5fc620d7}</Project>
+      <Name>AluPlast.ControlLoader.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
