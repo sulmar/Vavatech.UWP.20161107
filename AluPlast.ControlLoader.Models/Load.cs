@@ -15,7 +15,7 @@ namespace AluPlast.ControlLoader.Models
 
         public User Operator { get; set; }
 
-        private IList<Item> _Items;
+        private IList<Item> _Items = new List<Item>();
         public IList<Item> Items
         {
             get
@@ -25,10 +25,32 @@ namespace AluPlast.ControlLoader.Models
 
             set
             {
+                OnItemsChanging();
+
                 _Items = value;
+
+                OnItemsChanged();
+
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Progress));
                 OnPropertyChanged(nameof(LoadedItemsCount));
+
+               
+            }
+        }
+
+        private void OnItemsChanging()
+        {
+            foreach (var item in this.Items)
+            {
+                item.PropertyChanged -= Item_PropertyChanged;
+            }
+        }
+        private void OnItemsChanged()
+        {
+            foreach (var item in this.Items)
+            {
+                item.PropertyChanged += Item_PropertyChanged;
             }
         }
 
@@ -36,9 +58,23 @@ namespace AluPlast.ControlLoader.Models
 
         public LoadStatus LoadStatus { get; set; }
 
-        public int LoadedItemsCount => Items?.Count(p => p.IsLoaded.HasValue && p.IsLoaded.Value) ?? 0;
+        public int LoadedItemsCount => Items.Count(p => p.IsLoaded.HasValue && p.IsLoaded.Value);
 
-        public double Progress =>  (Items?.Count ?? 0)==0 ? 0 : (double) decimal.Divide(LoadedItemsCount, Items.Count);
+        public double Progress =>  Items.Count == 0 ? 0 : (double) decimal.Divide(LoadedItemsCount, Items.Count);
 
+        public bool CanAccept => Items.All(p => p.IsLoaded.HasValue && p.IsLoaded.Value);
+
+        public Load()
+        {
+           
+        }
+
+        private void Item_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Item.IsLoaded))
+            {
+                OnPropertyChanged(nameof(CanAccept));
+            }
+        }
     }
 }

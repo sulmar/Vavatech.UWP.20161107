@@ -23,5 +23,20 @@
             ItemsSource="{x:Bind ViewModel.SelectedLoad.Items, Mode=OneWay}"
             ItemTemplate="{StaticResource ItemTemplate}"
             />
+
+        
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <AppBarButton 
+                    Click="{x:Bind ViewModel.Accept}"
+                    IsEnabled="{x:Bind ViewModel.SelectedLoad.CanAccept, Mode=OneWay}" Icon="Accept" />
+            </CommandBar.Content>
+
+            <AppBarButton Icon="Pictures"/>
+            <AppBarButton Icon="Camera"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

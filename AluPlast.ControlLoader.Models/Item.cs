@@ -14,7 +14,20 @@ namespace AluPlast.ControlLoader.Models
 
         public ItemType ItemType { get; set; }
 
-        public bool? IsLoaded { get; set; }
+        private bool? _IsLoaded;
+        public bool? IsLoaded
+        {
+            get
+            {
+                return _IsLoaded;
+            }
+
+            set
+            {
+                _IsLoaded = value;
+                OnPropertyChanged();
+            }
+        }
 
         public string FullName => $"{ItemType} {Number}";
     }

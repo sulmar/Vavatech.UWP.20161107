@@ -48,6 +48,11 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         }
 
 
+        public void Accept()
+        {
+
+        }
+
         public void Back()
         {
             Frame rootFrame = Window.Current.Content as Frame;
