@@ -1,6 +1,7 @@
 ﻿using AluPlast.ControlLoader.Interfaces;
 using AluPlast.ControlLoader.MockServices;
 using AluPlast.ControlLoader.Models;
+using AluPlast.ControlLoader.UWPClient.RestApiServices;
 using AluPlast.ControlLoader.UWPClient.Views;
 using System;
 using System.Collections.Generic;
@@ -102,7 +103,7 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         }
 
         public LoadsViewModel()
-            : this(new MockLoadsService(), new MockItemsService())
+            : this(new RestApiLoadsService(), new MockItemsService())
         {
         }
 
