@@ -1,6 +1,7 @@
 ﻿using AluPlast.ControlLoader.Interfaces;
 using AluPlast.ControlLoader.MockServices;
 using AluPlast.ControlLoader.Models;
+using AluPlast.ControlLoader.UWPClient.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -116,7 +117,11 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         public async Task ShowDetails()
         {
-            SelectedLoad.Items = await _ItemsService.GetAsync(SelectedLoad.LoadId);
+            // SelectedLoad.Items = await _ItemsService.GetAsync(SelectedLoad.LoadId);
+
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            rootFrame.Navigate(typeof(ItemsView), SelectedLoad);
         }
 
 
