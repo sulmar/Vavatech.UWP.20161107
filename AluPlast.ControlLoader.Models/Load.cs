@@ -34,8 +34,9 @@ namespace AluPlast.ControlLoader.Models
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Progress));
                 OnPropertyChanged(nameof(LoadedItemsCount));
+                OnPropertyChanged(nameof(NotCanceledCount));
 
-               
+
             }
         }
 
@@ -60,7 +61,9 @@ namespace AluPlast.ControlLoader.Models
 
         public int LoadedItemsCount => Items.Count(p => p.IsLoaded.HasValue && p.IsLoaded.Value);
 
-        public double Progress =>  Items.Count == 0 ? 0 : (double) decimal.Divide(LoadedItemsCount, Items.Count);
+        public int NotCanceledCount => Items.Count(p => p.IsLoaded.HasValue);
+
+        public double Progress =>  NotCanceledCount == 0 ? 0 : (double) decimal.Divide(LoadedItemsCount, NotCanceledCount);
 
         public bool CanAccept => Items.All(p => p.IsLoaded.HasValue && p.IsLoaded.Value);
 

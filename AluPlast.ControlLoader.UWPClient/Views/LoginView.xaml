@@ -35,12 +35,18 @@
             </PasswordBox>
                          
 
-            <Button
+            <Button Background="Red"
                     Content="Zaloguj" 
                     Command="{Binding LoginCommand}"
                 >
 
-             
+                <!--<Button.Template>
+                    <ControlTemplate>
+                        <Grid Background="{TemplateBinding Background}">
+                            <CheckBox Canvas.Left="100" />
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>-->
 
             </Button>
         </StackPanel>
