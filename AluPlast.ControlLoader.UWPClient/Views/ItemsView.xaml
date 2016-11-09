@@ -9,12 +9,12 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <DataTemplate x:Key="ItemTemplate" x:DataType="model:Item">
+        <!--<DataTemplate x:Key="ItemTemplate" x:DataType="model:Item">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{x:Bind FullName}" />
                 <CheckBox IsChecked="{x:Bind IsLoaded}" />
             </StackPanel>
-        </DataTemplate>
+        </DataTemplate>-->
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

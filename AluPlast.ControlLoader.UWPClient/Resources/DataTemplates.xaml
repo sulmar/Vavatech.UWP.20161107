@@ -1,12 +1,22 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:AluPlast.ControlLoader.UWPClient.Resources">
+    xmlns:local="using:AluPlast.ControlLoader.UWPClient.Resources"
+    xmlns:model="using:AluPlast.ControlLoader.Models"
+    x:Class="AluPlast.ControlLoader.UWPClient.Resources.DataTemplates"
+    >
 
     <DataTemplate x:Key="UserTemplate">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="{Binding FirstName}" Style="{StaticResource ItemStyle}" />
             <TextBlock Text="{Binding LastName}" Style="{StaticResource ItemStyle}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ItemTemplate" x:DataType="model:Item">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{x:Bind FullName}" />
+            <CheckBox IsChecked="{x:Bind IsLoaded}" />
         </StackPanel>
     </DataTemplate>
 
