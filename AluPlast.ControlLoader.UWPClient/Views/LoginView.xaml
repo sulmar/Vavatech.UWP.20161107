@@ -24,22 +24,23 @@
                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                       />
 
-            <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}"
+            <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}">
+                <PasswordBox.InputScope>
+                    <InputScope>
+                        <InputScope.Names>
+                            <InputScopeName NameValue="NumericPin"/>
+                        </InputScope.Names>
+                    </InputScope>
+                </PasswordBox.InputScope>
+            </PasswordBox>
                          
-/>
 
             <Button
                     Content="Zaloguj" 
                     Command="{Binding LoginCommand}"
                 >
 
-                <i:Interaction.Behaviors>
-                    <!--<core:EventTriggerBehavior EventName="PointerMoved">
-                        <core:InvokeCommandAction Command="{Binding LoginCommand}"  />
-                    </core:EventTriggerBehavior>-->
-                    
-                    <!--<b:PointerMovedBehavior Password="{Binding Password}" Command="{Binding LoginCommand}"  />-->
-                </i:Interaction.Behaviors>
+             
 
             </Button>
         </StackPanel>
