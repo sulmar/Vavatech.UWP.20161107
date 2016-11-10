@@ -19,12 +19,14 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         public Load SelectedLoad { get; set; }
 
         private IItemsService _ItemsService;
+        private ILoadsService _LoadsService;
 
         
 
-        public ItemsViewModel(IItemsService itemsService)
+        public ItemsViewModel(IItemsService itemsService, ILoadsService loadsService)
         {
             this._ItemsService = itemsService;
+            this._LoadsService = loadsService;
 
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
             {
@@ -40,7 +42,7 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         }
 
 
-        public ItemsViewModel() : this(new RestApiItemsService())
+        public ItemsViewModel() : this(new RestApiItemsService(), new RestApiLoadsService())
         {
 
         }
@@ -50,9 +52,11 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         }
 
 
-        public void Accept()
+        public async Task Accept()
         {
+            SelectedLoad.LoadStatus = LoadStatus.Done;
 
+            await _LoadsService.UpdateAsync(SelectedLoad);
         }
 
 

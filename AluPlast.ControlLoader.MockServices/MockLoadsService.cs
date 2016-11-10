@@ -102,5 +102,15 @@ namespace AluPlast.ControlLoader.MockServices
         {
             return await Task.Run(() => Get(date));
         }
+
+        public async Task UpdateAsync(Load load)
+        {
+            var dbload = _Loads.SingleOrDefault(p => p.LoadId == load.LoadId);
+
+            if (dbload!=null)
+            {
+                dbload = load;
+            }
+        }
     }
 }

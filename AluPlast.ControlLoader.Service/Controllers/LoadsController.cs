@@ -63,6 +63,15 @@ namespace AluPlast.ControlLoader.Service.Controllers
             return Created("", item);
         }
 
+        [Route("api/loads/{id:int}")]
+        [HttpPut]
+        public IHttpActionResult Put(int id, Load load)
+        {
+            _LoadsService.Confirm(load.LoadId, load.Operator);
+
+            return Ok();
+        }
+
 
     
     }

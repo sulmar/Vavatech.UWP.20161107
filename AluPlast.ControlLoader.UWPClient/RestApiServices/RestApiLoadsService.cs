@@ -55,5 +55,20 @@ namespace AluPlast.ControlLoader.UWPClient.RestApiServices
             //    return loads;
             //}
         }
+
+        public async Task UpdateAsync(Load load)
+        {
+            var request = $"http://localhost:58892/api/Loads/{load.LoadId}";
+
+            using (var client = new HttpClient())
+            {
+                var response = await client.PutAsJsonAsync<Load>(request, load);
+
+                if (!response.IsSuccessStatusCode)
+                {
+
+                }
+            }
+        }
     }
 }
