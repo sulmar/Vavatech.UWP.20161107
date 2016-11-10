@@ -15,6 +15,11 @@ namespace AluPlast.ControlLoader.UWPClient.RestApiServices
             {
                 var response = await client.GetAsync(request);
 
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"błąd komunikacji: {response.StatusCode}");
+                }
+
                 var items = await response.Content.ReadAsAsync<TItem>();
 
                 return items;

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -111,14 +112,25 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         {
             IsBusy = true;
 
-            Loads = await _LoadsService.GetAsync(SelectedDate);
-
-            foreach (var load in Loads)
+            try
             {
-                load.Items = await _ItemsService.GetAsync(load.LoadId);
+                Loads = await _LoadsService.GetAsync(SelectedDate);
+
+                foreach (var load in Loads)
+                {
+                    load.Items = await _ItemsService.GetAsync(load.LoadId);
+                }
+            }
+            catch (Exception e)
+            {
+                var dialog = new MessageDialog(e.Message);
+                await dialog.ShowAsync();
             }
 
-            IsBusy = false;
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         public async Task ShowDetails()

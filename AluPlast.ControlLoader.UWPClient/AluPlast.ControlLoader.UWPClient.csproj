@@ -98,6 +98,7 @@
     <Compile Include="Behaviors\PointerMovedBehavior.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\BoolInverterConverter.cs" />
+    <Compile Include="Converters\DateTimeConverter.cs" />
     <Compile Include="Converters\NoopConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

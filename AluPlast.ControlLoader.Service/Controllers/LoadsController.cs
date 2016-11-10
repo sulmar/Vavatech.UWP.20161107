@@ -27,9 +27,16 @@ namespace AluPlast.ControlLoader.Service.Controllers
         }
 
         [Route("api/loads/{date}")]
-        public async Task<IList<Load>> Get(DateTime date)
+        public async Task<IHttpActionResult> Get(DateTime date)
         {
-            return await _LoadsService.GetAsync(date);
+            var loads = await _LoadsService.GetAsync(date);
+
+            if (!loads.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(loads);
         }
 
         [Route("api/loads/{number}/items")]
