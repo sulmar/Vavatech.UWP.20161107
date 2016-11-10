@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AluPlast.ControlLoader.Models;
+using System.Data.Entity;
 
 namespace AluPlast.ControlLoader.DAL
 {
@@ -25,9 +26,16 @@ namespace AluPlast.ControlLoader.DAL
             throw new NotImplementedException();
         }
 
-        public Task<IList<Item>> GetAsync(int loadId)
+        public async Task<IList<Item>> GetAsync(int loadId)
         {
-            throw new NotImplementedException();
+            using (var context = new AluPlastContext())
+            {
+                var load = await context.Loads
+                    .Include(path=>path.Items)
+                    .SingleOrDefaultAsync(p => p.LoadId == loadId);
+
+                return load?.Items;
+            }
         }
 
         public void Update(Item item)
