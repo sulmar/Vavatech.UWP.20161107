@@ -52,6 +52,7 @@
     <Compile Include="AluPlastContext.cs" />
     <Compile Include="DbItemsService.cs" />
     <Compile Include="DbLoadsService.cs" />
+    <Compile Include="DbPhotosService.cs" />
     <Compile Include="Migrations\201611101022542_InitialCreate.cs" />
     <Compile Include="Migrations\201611101022542_InitialCreate.Designer.cs">
       <DependentUpon>201611101022542_InitialCreate.cs</DependentUpon>

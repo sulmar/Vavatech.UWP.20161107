@@ -110,6 +110,7 @@
     <Compile Include="RestApiServices\BaseRestApiService.cs" />
     <Compile Include="RestApiServices\RestApiItemsService.cs" />
     <Compile Include="RestApiServices\RestApiLoadsService.cs" />
+    <Compile Include="RestApiServices\RestApiPhotosService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\LoadsViewModel.cs" />

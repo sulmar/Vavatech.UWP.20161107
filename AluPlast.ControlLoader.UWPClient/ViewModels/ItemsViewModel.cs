@@ -24,13 +24,18 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         private IItemsService _ItemsService;
         private ILoadsService _LoadsService;
+        private IPhotosService _PhotosService;
 
         
 
-        public ItemsViewModel(IItemsService itemsService, ILoadsService loadsService)
+        public ItemsViewModel(
+            IItemsService itemsService, 
+            ILoadsService loadsService,
+            IPhotosService photosService)
         {
             this._ItemsService = itemsService;
             this._LoadsService = loadsService;
+            this._PhotosService = photosService;
 
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
             {
@@ -46,7 +51,7 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         }
 
 
-        public ItemsViewModel() : this(new RestApiItemsService(), new RestApiLoadsService())
+        public ItemsViewModel() : this(new RestApiItemsService(), new RestApiLoadsService(), new RestApiPhotosService())
         {
 
         }
@@ -92,20 +97,20 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
             // captureUI.PhotoSettings.CroppedSizeInPixels = new Size(200, 200);
 
-            StorageFile photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
+            StorageFile photoFile = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
 
 
-            if (photo != null)
+            if (photoFile != null)
             {
-                IRandomAccessStreamWithContentType stream = await photo.OpenReadAsync();
+                IRandomAccessStreamWithContentType stream = await photoFile.OpenReadAsync();
 
                 var buffer = new byte[stream.Size];
 
                 await stream.ReadAsync(buffer.AsBuffer(), (uint) stream.Size, InputStreamOptions.None);
 
-                // TODO: upload
+                var photo = new Photo { Content = buffer, Description = "My photo" };
 
-
+                await _PhotosService.AddAsync(photo);
             }
 
         }

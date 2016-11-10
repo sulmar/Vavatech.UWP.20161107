@@ -13,6 +13,8 @@ namespace AluPlast.ControlLoader.Interfaces
 
         void Add(Photo photo);
 
+        Task AddAsync(Photo photo);
+
         void Remove(int photoId);
     }
 }

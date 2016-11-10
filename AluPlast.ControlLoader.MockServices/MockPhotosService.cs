@@ -23,6 +23,11 @@ namespace AluPlast.ControlLoader.MockServices
             _Photos.Add(photo);
         }
 
+        public Task AddAsync(Photo photo)
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<Photo> Get(int loadId)
         {
             return _Photos;
