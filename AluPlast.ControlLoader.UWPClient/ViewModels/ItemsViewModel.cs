@@ -80,6 +80,11 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         }
 
+
+        public async Task TakePicture()
+        {
+
+        }
         public void Back()
         {
             Frame rootFrame = Window.Current.Content as Frame;
