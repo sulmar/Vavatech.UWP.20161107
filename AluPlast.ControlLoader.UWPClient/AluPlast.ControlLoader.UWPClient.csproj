@@ -106,6 +106,8 @@
     <Compile Include="Resources\DataTemplates.xaml.cs">
       <DependentUpon>DataTemplates.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RestApiServices\BaseRestApiService.cs" />
+    <Compile Include="RestApiServices\RestApiItemsService.cs" />
     <Compile Include="RestApiServices\RestApiLoadsService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />

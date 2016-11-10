@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:AluPlast.ControlLoader.UWPClient"
     xmlns:res="using:AluPlast.ControlLoader.UWPClient.Resources"
-    RequestedTheme="Light">
+    RequestedTheme="Dark">
 
 
     <Application.Resources>

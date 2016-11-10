@@ -9,7 +9,7 @@ using System.Net.Http;
 
 namespace AluPlast.ControlLoader.UWPClient.RestApiServices
 {
-    public class RestApiLoadsService : ILoadsService
+    public class RestApiLoadsService : BaseRestApiService, ILoadsService
     {
         public void Canceled(int loadId, User @operator)
         {
@@ -38,16 +38,22 @@ namespace AluPlast.ControlLoader.UWPClient.RestApiServices
 
         public async Task<IList<Load>> GetAsync(DateTime date)
         {
-            using (var client = new HttpClient())
-            {
-                var request = $"http://localhost:58892/api/Loads/{date:yyyy-MM-dd}";
+            // TODO: przenieść adres do konfiguracji
 
-                var response = await client.GetAsync(request);
+            var request = $"http://localhost:58892/api/Loads/{date:yyyy-MM-dd}";
 
-                var loads = await response.Content.ReadAsAsync<IList<Load>>();
+            return await GetAsync<IList<Load>>(request);
 
-                return loads;
-            }
+            //using (var client = new HttpClient())
+            //{
+            //    var request = $"http://localhost:58892/api/Loads/{date:yyyy-MM-dd}";
+
+            //    var response = await client.GetAsync(request);
+
+            //    var loads = await response.Content.ReadAsAsync<IList<Load>>();
+
+            //    return loads;
+            //}
         }
     }
 }

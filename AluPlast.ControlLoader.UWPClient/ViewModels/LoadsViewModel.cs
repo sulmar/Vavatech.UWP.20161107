@@ -103,7 +103,7 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
         }
 
         public LoadsViewModel()
-            : this(new RestApiLoadsService(), new MockItemsService())
+            : this(new RestApiLoadsService(), new RestApiItemsService())
         {
         }
 
@@ -123,8 +123,6 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         public async Task ShowDetails()
         {
-            // SelectedLoad.Items = await _ItemsService.GetAsync(SelectedLoad.LoadId);
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             rootFrame.Navigate(typeof(ItemsView), SelectedLoad);
