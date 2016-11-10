@@ -5,9 +5,13 @@ using AluPlast.ControlLoader.UWPClient.RestApiServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
+using Windows.Media.Capture;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -83,6 +87,26 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         public async Task TakePicture()
         {
+            CameraCaptureUI captureUI = new CameraCaptureUI();
+            captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
+
+            // captureUI.PhotoSettings.CroppedSizeInPixels = new Size(200, 200);
+
+            StorageFile photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
+
+
+            if (photo != null)
+            {
+                IRandomAccessStreamWithContentType stream = await photo.OpenReadAsync();
+
+                var buffer = new byte[stream.Size];
+
+                await stream.ReadAsync(buffer.AsBuffer(), (uint) stream.Size, InputStreamOptions.None);
+
+                // TODO: upload
+
+
+            }
 
         }
         public void Back()
