@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="AluPlast.ControlLoader.UWPClient.Views.PhotosView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AluPlast.ControlLoader.UWPClient.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:AluPlast.ControlLoader.Models"
+    xmlns:c="using:AluPlast.ControlLoader.UWPClient.Converters"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <c:ImageConverter x:Key="ImageConverter" />
+    </Page.Resources>
+
+    <Grid Loaded="{x:Bind ViewModel.LoadAsync}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <FlipView ItemsSource="{x:Bind ViewModel.Photos, Mode=OneWay}">
+            <FlipView.ItemTemplate>
+                <DataTemplate x:DataType="model:Photo">
+                    <Image Source="{x:Bind Content, Converter={StaticResource ImageConverter}}" />
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+
+        </FlipView>
+        
+        <!--<Image Source="{x:Bind ViewModel.Photos[0]}" />-->
+    </Grid>
+</Page>

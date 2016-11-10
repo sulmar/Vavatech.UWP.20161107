@@ -43,6 +43,25 @@ namespace AluPlast.ControlLoader.UWPClient.RestApiServices
             throw new NotImplementedException();
         }
 
+        public new Task<IList<Photo>> GetAsync(int loadId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Photo> GetSingleAsync(int photoId)
+        {
+            var request = $"http://localhost:58892/api/loads/1/photos/{photoId}";
+
+            using (var client = new HttpClient())
+            {
+                var content = await client.GetByteArrayAsync(request);
+
+                var photo = new Photo { Content = content };
+
+                return photo;
+            }
+        }
+
         public void Remove(int photoId)
         {
             throw new NotImplementedException();

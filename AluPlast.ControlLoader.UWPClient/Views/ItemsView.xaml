@@ -35,7 +35,7 @@
             </CommandBar.Content>
 
             <AppBarButton Label="Add Item" Click="{x:Bind ViewModel.Add}" Icon="Add" />
-            <AppBarButton Label="Pictures" Icon="Pictures"/>
+            <AppBarButton Label="Pictures" Icon="Pictures" Click="{x:Bind ViewModel.ShowPictures}"/>
             <AppBarButton Label="Take picture" Click="{x:Bind ViewModel.TakePicture}" 
                           Icon="Camera"/>
         </CommandBar>

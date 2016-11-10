@@ -33,6 +33,16 @@ namespace AluPlast.ControlLoader.MockServices
             return _Photos;
         }
 
+        public Task<IList<Photo>> GetAsync(int loadId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Photo> GetSingleAsync(int photoId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Remove(int photoId)
         {
             throw new NotImplementedException();

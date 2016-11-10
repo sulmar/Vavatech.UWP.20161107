@@ -2,6 +2,7 @@
 using AluPlast.ControlLoader.MockServices;
 using AluPlast.ControlLoader.Models;
 using AluPlast.ControlLoader.UWPClient.RestApiServices;
+using AluPlast.ControlLoader.UWPClient.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,6 +90,12 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
         }
 
+        public void ShowPictures()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            rootFrame.Navigate(typeof(PhotosView), SelectedLoad);
+        }
 
         public async Task TakePicture()
         {

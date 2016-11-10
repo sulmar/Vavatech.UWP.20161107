@@ -11,6 +11,10 @@ namespace AluPlast.ControlLoader.Interfaces
     {
         IList<Photo> Get(int loadId);
 
+        Task<IList<Photo>> GetAsync(int loadId);
+
+        Task<Photo> GetSingleAsync(int photoId);
+
         void Add(Photo photo);
 
         Task AddAsync(Photo photo);

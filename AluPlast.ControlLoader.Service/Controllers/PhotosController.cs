@@ -4,6 +4,7 @@ using AluPlast.ControlLoader.MockServices;
 using AluPlast.ControlLoader.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -53,5 +54,25 @@ namespace AluPlast.ControlLoader.Service.Controllers
             return Ok();
 
         }
+
+        [Route("api/loads/{loadId:int}/photos")]
+        public async Task<IHttpActionResult> Get(int loadId)
+        {
+            var photos = await _PhotosService.GetAsync(loadId);
+
+            return Ok(photos);
+        }
+
+        [Route("api/loads/{loadId:int}/photos/{id}")]
+        public async Task<IHttpActionResult> Get(int loadId, int id)
+        {
+            var photo = await _PhotosService.GetSingleAsync(id);
+
+            var stream = new MemoryStream(photo.Content);
+
+            return new StreamActionResult(stream);
+
+        }
+
     }
 }
