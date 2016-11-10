@@ -11,6 +11,21 @@ namespace AluPlast.ControlLoader.UWPClient.RestApiServices
 {
     public class RestApiItemsService : BaseRestApiService, IItemsService
     {
+        public async Task AddAsync(int loadId, Item item)
+        {
+            var request = $"http://localhost:58892/api/Loads/{loadId}/Items";
+
+            using (var client = new HttpClient())
+            {
+                var response = await client.PostAsJsonAsync<Item>(request, item);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    item = await response.Content.ReadAsAsync<Item>();
+                }
+            }
+        }
+
         public IList<Item> Get(int loadId)
         {
             throw new NotImplementedException();

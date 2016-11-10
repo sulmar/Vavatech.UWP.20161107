@@ -53,6 +53,17 @@ namespace AluPlast.ControlLoader.Service.Controllers
         }
 
 
+
+        [Route("api/loads/{id:int}/items")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Post(int id, Item item)
+        {
+            await _ItemsService.AddAsync(id, item);
+
+            return Created("", item);
+        }
+
+
     
     }
 

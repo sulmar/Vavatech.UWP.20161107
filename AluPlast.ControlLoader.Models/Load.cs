@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -15,8 +16,9 @@ namespace AluPlast.ControlLoader.Models
 
         public User Operator { get; set; }
 
-        private IList<Item> _Items = new List<Item>();
-        public IList<Item> Items
+        private ObservableCollection<Item> _Items = new ObservableCollection<Item>();
+
+        public ObservableCollection<Item> Items
         {
             get
             {

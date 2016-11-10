@@ -18,6 +18,10 @@ namespace AluPlast.ControlLoader.MockServices
             new Item { ItemId = 4, Number = "4014", ItemType = ItemType.EUR, IsLoaded = false },
         };
 
+        public Task AddAsync(int loadId, Item item)
+        {
+            return Task.Run(()=>_Items.Add(item));
+        }
 
         public IList<Item> Get(int loadId)
         {

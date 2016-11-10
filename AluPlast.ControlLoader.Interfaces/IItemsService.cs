@@ -14,5 +14,7 @@ namespace AluPlast.ControlLoader.Interfaces
         IList<Item> Get(int loadId);
 
         void Update(Item item);
+
+        Task AddAsync(int loadId, Item item);
     }
 }

@@ -34,6 +34,7 @@
                     IsEnabled="{x:Bind ViewModel.SelectedLoad.CanAccept, Mode=OneWay}" Icon="Accept" />
             </CommandBar.Content>
 
+            <AppBarButton Click="{x:Bind ViewModel.Add}" Icon="Add" />
             <AppBarButton Icon="Pictures"/>
             <AppBarButton Icon="Camera"/>
         </CommandBar>

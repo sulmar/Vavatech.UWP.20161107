@@ -118,7 +118,7 @@ namespace AluPlast.ControlLoader.UWPClient.ViewModels
 
                 foreach (var load in Loads)
                 {
-                    load.Items = await _ItemsService.GetAsync(load.LoadId);
+                    load.Items = new ObservableCollection<Item>(await _ItemsService.GetAsync(load.LoadId));
                 }
             }
             catch (Exception e)
