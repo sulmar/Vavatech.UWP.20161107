@@ -1,4 +1,5 @@
-﻿using AluPlast.ControlLoader.Interfaces;
+﻿using AluPlast.ControlLoader.DAL;
+using AluPlast.ControlLoader.Interfaces;
 using AluPlast.ControlLoader.MockServices;
 using AluPlast.ControlLoader.Models;
 using System;
@@ -22,7 +23,7 @@ namespace AluPlast.ControlLoader.Service.Controllers
         }
 
         public LoadsController()
-            : this(new MockLoadsService(), new MockItemsService())
+            : this(new DbLoadsService(), new DbItemsService())
         {
         }
 

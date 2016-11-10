@@ -11,5 +11,8 @@ namespace AluPlast.ControlLoader.Models
         public int PhotoId { get; set; }
 
         public byte[] Content { get; set; }
+
+
+        public string Description { get; set; }
     }
 }

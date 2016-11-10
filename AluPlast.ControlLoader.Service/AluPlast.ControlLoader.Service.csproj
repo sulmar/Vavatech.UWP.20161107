@@ -287,6 +287,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AluPlast.ControlLoader.DAL\AluPlast.ControlLoader.DAL.csproj">
+      <Project>{9b4c5cf6-2dcb-434a-9543-1b4a846b2e9f}</Project>
+      <Name>AluPlast.ControlLoader.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AluPlast.ControlLoader.Interfaces\AluPlast.ControlLoader.Interfaces.csproj">
       <Project>{711aa642-b4ec-4c09-bb89-0cdbbb6f2976}</Project>
       <Name>AluPlast.ControlLoader.Interfaces</Name>
