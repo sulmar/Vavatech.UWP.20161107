@@ -13,6 +13,7 @@
     <Page.Resources>
         <c:NoopConverter x:Key="NoopConverter" />
         <c:BoolInverterConverter x:Key="BoolInverterConverter" />
+        <c:DateTimeConverter x:Key="DateTimeConverter" />
 
         <Style x:Key="MyStyle" TargetType="TextBlock">
             <Setter Property="Margin" Value="10" />
@@ -40,11 +41,14 @@
     <Grid Loaded="{x:Bind ViewModel.LoadAsync}" 
           Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-
             <!--<Button Content="Back" Click="{x:Bind ViewModel.Back}"/>-->
+        <StackPanel>
 
+            <DatePicker Date="{x:Bind ViewModel.SelectedDate, Mode=TwoWay, Converter={StaticResource DateTimeConverter}}"
+                        DateChanged="{x:Bind ViewModel.LoadAsync}"
+                        />
 
-        <ListView ItemsSource="{x:Bind ViewModel.Loads, Mode=OneWay}"
+            <ListView ItemsSource="{x:Bind ViewModel.Loads, Mode=OneWay}"
                          ItemTemplate="{StaticResource LoadTemplate}"
                          SelectedItem="{x:Bind ViewModel.SelectedLoad, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
                          SelectionChanged="{x:Bind ViewModel.ShowDetails}"
@@ -58,9 +62,11 @@
         <!--<Button Content="Show details" Click="{x:Bind ViewModel.ShowDetails}" />-->
 
             <ProgressRing IsActive="{x:Bind ViewModel.IsBusy, Mode=OneWay}" />
+
             
 
 
-        
+        </StackPanel>
+
     </Grid>
 </Page>
