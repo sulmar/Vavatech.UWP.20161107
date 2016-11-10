@@ -16,7 +16,7 @@
     <DataTemplate x:Key="ItemTemplate" x:DataType="model:Item">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="{x:Bind FullName}" />
-            <CheckBox IsChecked="{x:Bind IsLoaded, Mode=TwoWay}" IsThreeState="True" Style="{StaticResource CheckBoxStyle1}" />
+            <CheckBox IsChecked="{x:Bind IsLoaded, Mode=TwoWay}" IsThreeState="True"  />
         </StackPanel>
     </DataTemplate>
 
