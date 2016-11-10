@@ -17,14 +17,19 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
+        <StackPanel VerticalAlignment="Center">
             <ComboBox Header="Użytkownik" 
                       ItemsSource="{Binding Users}"
                       ItemTemplate="{StaticResource UserTemplate}"
                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
+                      HorizontalAlignment="Center"
+                      Width="200"
                       />
 
-            <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}">
+            <PasswordBox Header="Hasło" Password="{Binding Password, Mode=TwoWay}"
+                         HorizontalAlignment="Center"
+                         Width="200"
+                         >
                 <PasswordBox.InputScope>
                     <InputScope>
                         <InputScope.Names>
@@ -37,6 +42,9 @@
 
             <Button Background="Red"
                     Content="Zaloguj" 
+                    HorizontalAlignment="Center"
+                    Margin="20"
+                    Width="200"
                     Command="{Binding LoginCommand}"
                 >
 
