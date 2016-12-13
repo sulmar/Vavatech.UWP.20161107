@@ -14,6 +14,9 @@ namespace AluPlast.ControlLoader.Models
 
         public ItemType ItemType { get; set; }
 
+        public IList<ItemType> ItemTypes => Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList();
+
+
         private bool? _IsLoaded;
         public bool? IsLoaded
         {

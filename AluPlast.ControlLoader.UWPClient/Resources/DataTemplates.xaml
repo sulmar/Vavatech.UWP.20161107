@@ -16,6 +16,7 @@
     <DataTemplate x:Key="ItemTemplate" x:DataType="model:Item">
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="{x:Bind FullName}" />
+            <ComboBox ItemsSource="{x:Bind ItemTypes}" SelectedItem="{x:Bind ItemType}" />
             <CheckBox IsChecked="{x:Bind IsLoaded, Mode=TwoWay}" IsThreeState="True"  />
         </StackPanel>
     </DataTemplate>
